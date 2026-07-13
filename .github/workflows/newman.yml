@@ -16,6 +16,5 @@ jobs:
 
       - name: Run API Tests
         run: |
-          newman run "Restful Booker API Tests.postman_collection.json" \
-            -e "New Environment.postman_environment (1).json" \
+          newman run "Restful Booker API Tests.postman_collection (2).json" \
             --env-var "baseUrl=https://restful-booker.herokuapp.com"
