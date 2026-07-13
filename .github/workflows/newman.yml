@@ -1,0 +1,21 @@
+name: Restful Booker API Tests
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run API Tests
+        run: |
+          newman run "Restful Booker API Tests.postman_collection.json" \
+            -e "New Environment.postman_environment (1).json" \
+            --env-var "baseUrl=https://restful-booker.herokuapp.com"
